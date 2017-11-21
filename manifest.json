@@ -1,0 +1,52 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "sn_19.png",
+         "38": "sn_38.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "Enhanced Dashboard - Amgen Service Desk"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "incident-list-content.js" ],
+      "matches": [ "*://amgen.service-now.com/incident_list.do*", "*://amgen.service-now.com/nav_to.do?uri=%2Fincident_list.do*", "*://amgentrain.service-now.com/incident_list.do*", "*://amgentrain.service-now.com/nav_to.do?uri=%2Fincident_list.do*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "task-list-content.js" ],
+      "matches": [ "*://amgen.service-now.com/sc_task_list.do*", "*://amgen.service-now.com/nav_to.do?uri=%sc_task_list.do*", "*://amgentrain.service-now.com/sc_task_list.do*", "*://amgentrain.service-now.com/nav_to.do?uri=%2Fsc_task_list.do*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "task-content.js" ],
+      "matches": [ "*://amgen.service-now.com/sc_task.do*", "*://amgen.service-now.com/nav_to.do?uri=%2Fsc_task.do*", "*://amgentrain.service-now.com/sc_task.do*", "*://amgentrain.service-now.com/nav_to.do?uri=%2Fsc_task.do*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "incident-content.js" ],
+      "matches": [ "*://amgen.service-now.com/incident.do*", "*://amgen.service-now.com/nav_to.do?uri=%2Fincident.do*", "*://amgentrain.service-now.com/incident.do*", "*://amgentrain.service-now.com/nav_to.do?uri=%2Fincident.do*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "chat-content.js" ],
+      "matches": [ "*://amgen.service-now.com/chat_desktop.do*", "*://amgen.service-now.com/nav_to.do?uri=%2Fchat_desktop.do*", "*://amgentrain.service-now.com/chat_desktop.do*", "*://amgentrain.service-now.com/nav_to.do?uri=%2Fchat_desktop.do*" ]
+   } ],
+   "description": "Enhanced Dashboard for the Amgen Service Desk at Unisys - Helps automate and enhance many common ticketing tasks",
+   "externally_connectable": {
+      "matches": [ "*://amgen.service-now.com/*", "*://amgentrain.service-now.com/*" ]
+   },
+   "icons": {
+      "128": "sn_128.png",
+      "48": "sn_48.png",
+      "64": "sn_64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnVlUugXDrRH2laQGeaI2i415X1gCiycWbv1j9Ly1yJMJNMjPOYSwQx0louvJXLPUVNVO3zNbd5XXYa6GPpQXTybNqr5DuaOa5fWlmB3nQw50jds4y2nXR9mYRE1C+0/2awGhVXtcZoqel0AnzwKhk/3Wyh2LYZ6Uwlw+CoXzcV1gd3CwsqClZVvDG70eYR/zj3+8r/2CuQVYSDkTWYolLlnRNoi2MRA+Jlv8I026p/gDZD33KDEf9r+UPvbNa2HsO9z4LGvDRNWgrOzqOfLMEw1k81HB2FMa5XDeawsAdFYewsqZIAd2wypbF1Aoji8J73QXTarUbwhe7jZWvZ5p8QIDAQAB",
+   "manifest_version": 2,
+   "name": "Enhanced Dashboard - Amgen Service Desk",
+   "options_page": "options.html",
+   "permissions": [ "activeTab", "alarms", "notifications", "tabs", "storage", "*://amgen.service-now.com/*", "*://amgentrain.service-now.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.6",
+   "web_accessible_resources": [ "incident-list-script.js", "incident-script.js", "task-list-script.js", "task-script.js", "chat-script.js", "autoroute.js", "popup.js", "options.js" ]
+}
